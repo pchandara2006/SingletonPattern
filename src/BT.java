@@ -2,9 +2,14 @@ abstract class BT {
 
     // abstract method
     public abstract int height();
-
     //
     public abstract boolean isBST();
+    //helper method for range based BST checking
+    protected abstract boolean isBSTHelper(int min, int max);
+    // Public delete method
+    public BT delete(int key) {
+        return deleteHelper(this, key);
+    }
 
     public static Node buildBST(int[] values) {
         BT tree = Nil.getNil();
@@ -71,7 +76,4 @@ abstract class BT {
         }
         return findMax((Node) root.right);
     }
-
-
-
 }

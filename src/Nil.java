@@ -27,4 +27,15 @@ class Nil extends BT {
         return "Nil";
     }
 
+    // Needed for BST checking with range limits
+    @Override
+    protected boolean isBSTHelper(int min, int max) {
+        return true;
+    }
+
+    // Nil delete → always return itself
+    @Override
+    public BT delete(int key) {
+        return this;
+    }
 }
