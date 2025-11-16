@@ -1,12 +1,12 @@
 class Nil extends BT {
 
-    private static Nil nil;    // reference to the singleton object
+    private static Nil nil;
 
     // dummy constructor
     private Nil() {
     }
 
-    // obtaining reference to the singleton object
+    // obtaining reference to the singleton
     public static Nil getNil() {
         if (nil == null) {
             nil = new Nil();
@@ -14,8 +14,17 @@ class Nil extends BT {
         return nil;
     }
 
-    // overriding method for computing the height of Nil
+    // overriding method
     public int height() {
         return -1;
     }
+
+    public boolean isBST() {
+        return true;
+    }
+
+    public String toString() {
+        return "Nil";
+    }
+
 }

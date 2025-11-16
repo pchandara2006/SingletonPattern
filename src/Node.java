@@ -1,20 +1,31 @@
 class Node extends BT {
 
-    int num;   // value of the node
-    BT left;   // reference to the left subtree
-    BT right;  // reference to the right subtree
+    int num;
+    BT left;
+    BT right;
 
-    // constructor for combining two existing binary trees
+    // constructor for combining 2 binary trees
     Node(int n, BT l, BT r) {
         num = n;
         left = l;
         right = r;
     }
 
-    // computing the height of the tree
+    // computing the height
     public int height() {
         int lh = left.height();
         int rh = right.height();
         return (lh < rh ? rh : lh) + 1;
+    }
+    public String toString() {
+        return "Node(" + num + ", " + left.toString() + ", " + right.toString() + ")";
+    }
+
+    public boolean isBST() {
+        return isBSTInRange(Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean isBSTInRange(int min, int max) {
+        // Here
     }
 }

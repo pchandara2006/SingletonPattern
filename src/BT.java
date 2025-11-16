@@ -1,7 +1,40 @@
 abstract class BT {
 
-    // abstract method for getting the tree height
+    // abstract method
     public abstract int height();
 
-    // we will add more things later
+    //
+    public abstract boolean isBST();
+
+    public static Node buildBST(int[] values) {
+        BT tree = Nil.getNil();
+        for (int v : values) {
+            tree = insertHelper(tree, v);
+        }
+        return (Node) tree;
+    }
+
+    //Helper Function
+    private static BT insertHelper(BT tree, int value) {
+    // Here//
+
+    }
+
+    // Recursive helper for Delete
+    private static BT deleteHelper(BT tree, int key) {
+    //  Here //
+
+    }
+
+
+   // Finding MAX key in NON-empty BST
+    private static int findMax(Node root) {
+        if (root.right instanceof Nil) {
+            return root.num;
+        }
+        return findMax((Node) root.right);
+    }
+
+
+
 }
