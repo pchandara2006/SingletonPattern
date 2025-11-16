@@ -1,4 +1,4 @@
-// We dont need this, just for
+// We don't need this, just for
 // checking
 public class Main {
     public static void main(String[] args) {
@@ -16,18 +16,18 @@ public class Main {
         System.out.println("Original isBST():    " + tree2.isBST());
         System.out.println();
 
-        tree2 = BT.delete(tree2, 10);
+        tree2 = tree2.delete(10);
         System.out.println("After deleting 10:   " + tree2);
         System.out.println("isBST():             " + tree2.isBST());
         System.out.println();
 
 
-        tree2 = BT.delete(tree2, 18);
+        tree2 = tree2.delete(18);
         System.out.println("After deleting 18:   " + tree2);
         System.out.println("isBST():             " + tree2.isBST());
         System.out.println();
 
-        tree2 = BT.delete(tree2, 8);
+        tree2 = tree2.delete(8);
         System.out.println("After deleting 8:    " + tree2);
         System.out.println("isBST():             " + tree2.isBST());
     }
