@@ -30,7 +30,36 @@ abstract class BT {
 
     // Recursive helper for Delete
     private static BT deleteHelper(BT tree, int key) {
-    //  Here //
+    //if tree is empty then nothing to delete
+        if(tree instanceof Nil){
+            return tree;
+        }
+        Node n = (Node) tree;
+        //if key is in left subtree
+        if(key< n.num){
+            return new Node(n.num, deleteHelper(n.left, key), n.right);
+        }
+        //if key is in the right subtree
+        if(key > n.num){
+            return new Node(n.num, n.left, deleteHelper(n.right, key));
+        }
+        //if node must be deleted and no children
+        if (n.left instanceof Nil && n.right instanceof Nil) {
+            return Nil.getNil();
+        }
+        // one child (right only)
+        if (n.left instanceof Nil) {
+            return n.right;
+        }
+
+        // one child (left only)
+        if (n.right instanceof Nil) {
+            return n.left;
+        }
+
+        // if two children then replace with max of left subtree
+        int max = findMax((Node) n.left);
+        return new Node(max, deleteHelper(n.left, max), n.right);
 
     }
 
