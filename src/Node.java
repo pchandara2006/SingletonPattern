@@ -21,11 +21,26 @@ class Node extends BT {
         return "Node(" + num + ", " + left.toString() + ", " + right.toString() + ")";
     }
 
+    @Override
     public boolean isBST() {
-        return isBSTInRange(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isBSTHelper(Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    @Override
+    protected boolean isBSTHelper(int min, int max) {
+        // Check current node value within valid range
+        if (num < min || num > max) {
+            return false;
+        }
+
+        // Check left subtree within updated range
+        // and right subtree within updated range
+        return left.isBSTHelper(min, num - 1)
+                && right.isBSTHelper(num + 1, max);
     }
 
-    private boolean isBSTInRange(int min, int max) {
-        // Here
+    @Override
+    public BT delete(int key) {
+        return super.delete(key);
     }
+
 }
