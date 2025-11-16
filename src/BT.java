@@ -16,8 +16,16 @@ abstract class BT {
 
     //Helper Function
     private static BT insertHelper(BT tree, int value) {
-    // Here//
-
+        //if tree empty then create a new node
+        if(tree instanceof Nil){
+            return new Node(value, Nil.getNil(), Nil.getNil());
+        }
+        Node n = (Node) tree;
+        if (value < n.num) {
+            return new Node(n.num, insertHelper(n.left, value), n.right);
+        } else {
+            return new Node(n.num, n.left, insertHelper(n.right, value));
+        }
     }
 
     // Recursive helper for Delete
